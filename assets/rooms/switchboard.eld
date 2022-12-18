@@ -39,9 +39,9 @@ Behind him, the door's lock clicks.")
     ("take" "It's mounted to the wall. Greg gives it his all but only farts."))
    ("door"
     ("take"
-     (if (eq (greg<-status spiel--greg) 'shat)
+     (if (eq (spiel-player<-status spiel--player) 'shat)
          "Greg considers violence on the door again, but the warmth in his undies disuades him."
-       (setf (greg<-status spiel--greg) 'shat)
+       (setf (spiel-player<-status spiel--player) 'shat)
        (setf (alist-get 'shat spiel--statuses) "Greg is frowning. He's shat himself.")
        "Greg squeezes his fingers around the frame of the door. He pulls with all his might. He shits himself. The door does not."))
     ("look"
@@ -56,7 +56,8 @@ Behind him, the door's lock clicks.")
      (if (spiel--has-p 'cable)
          "The box is empty."
        (spiel--set-room-item "cable"
-         ("look" "It's a yellow switchboard patch cable. Slightly frayed, but it may still work.")
+         ("look"
+          "It's a yellow switchboard patch cable. Slightly frayed, but it may still work.")
          ("take" (spiel--get 'cable "a yellow switchboard cable")))
        "The box contains a yellow switchboard cable.")))
    ("north"
