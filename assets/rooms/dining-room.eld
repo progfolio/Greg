@@ -19,8 +19,8 @@ To the north, a door leads to the switchboard room."
                   (if (spiel--has-p 'candle)
                       (progn
                         (spiel--use 'candle)
-                      "Greg sets the candle in the center of the candelabra.
-The entire room begins to shake!"
+                        "Greg sets the candle in the center of the candelabra.
+The entire room begins to shake!")
                     "Greg does not have a candle."))
                  (t (spiel--parse-command "take candelabra" 'noprint))))))
      "The table is ornately set. The centerpiece is a fancy candelabra, missing a candle."))
