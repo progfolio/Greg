@@ -43,6 +43,7 @@
                       :input-buffer "*greg input*"
                       :output-buffer "*greg output*")
   (setf (spiel-game<-room spiel--game) (alist-get 'switchboard (spiel-game<-rooms spiel--game)))
+  (push "He's your average Greg. He milks things." (spiel-player<-status spiel--player))
   (delete-other-windows)
   (spiel--output-buffer)
   (spiel--input-buffer))
