@@ -38,10 +38,11 @@
 (defun greg ()
   "Play Greg."
   (interactive)
-  (spiel--load-rooms greg--rooms-dir)
-  (setq spiel-player (spiel-player)
-        spiel--old-window-config (current-window-configuration)
-        spiel--room (alist-get 'switchboard spiel--rooms))
+  (spiel-game<-create "Greg" greg--rooms-dir
+                      :reset #'greg
+                      :input-buffer "*greg input*"
+                      :output-buffer "*greg output*")
+  (setf (spiel-game<-room spiel--game) (alist-get 'switchboard (spiel-game<-rooms spiel--game)))
   (delete-other-windows)
   (spiel--output-buffer)
   (spiel--input-buffer))
