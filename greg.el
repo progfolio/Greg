@@ -31,11 +31,11 @@
 (require 'cl-lib)
 
 (defvar greg--directory (or (ignore-errors (file-name-directory load-file-name))
-                           default-directory))
+                            default-directory))
 (defvar greg--assets (expand-file-name "./assets" greg--directory))
 (defvar greg--rooms-dir (expand-file-name "./rooms" greg--assets))
 
-(defun greg () ;;@TODO: remove. Not SPI specific.
+(defun greg ()
   "Play Greg."
   (interactive)
   (spiel--load-rooms greg--rooms-dir)
