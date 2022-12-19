@@ -35,6 +35,7 @@
 (defvar greg--assets (expand-file-name "./assets" greg--directory))
 (defvar greg--rooms-dir (expand-file-name "./rooms" greg--assets))
 
+;;;###autoload
 (defun greg ()
   "Play Greg."
   (interactive)
