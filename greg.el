@@ -57,7 +57,6 @@
     (setq-local
      spiel-buffer greg-buffer
      spiel-time (date-to-time "2000-09-01T17:00:00-05:00"))
-    ;;@FIX: use load-path + require to load objects
     (cl-loop for f in (directory-files (expand-file-name "./objects/" greg--directory)
                                        t "\\.el\\'")
              when (file-exists-p f) do (load f nil 'no-message))
