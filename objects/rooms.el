@@ -65,10 +65,10 @@ A doorway to the north leads to a hallway."
    (pcase pattern
      ((or "pull" "use")
       (cond ((not (spiel-context-get 'green-lever 'pulled))
-             (setf (spiel-entity<-description (spiel-ensure-entity 'red-lever)) nil
-                   (spiel-entity<-description (spiel-ensure-entity 'lever-hall-wall))
+             (setf (spiel-object<-description (spiel-ensure-entity 'red-lever)) nil
+                   (spiel-object<-description (spiel-ensure-entity 'lever-hall-wall))
                    "Along the back wall there is a green lever.")
-             (setf (spiel-entity<-details (spiel-ensure-entity 'red-lever))
+             (setf (spiel-object<-details (spiel-ensure-entity 'red-lever))
                    "A broken, rusty lever. Seems dangerous.")
              (spiel-object-give 'greg 'red-lever)
              "The red lever breaks off in Greg's hand.")
