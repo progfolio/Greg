@@ -34,6 +34,7 @@ A doorway to the north leads to a hallway."
                      :location '(in . lever-hall)
                      :description "Along the back wall there are two levers."
                      :details "The wall has a green lever and a red lever."
+                     :context '((immobile . t))
                      :names '("wall")
                      :adjectives '("back"))
 
@@ -44,6 +45,7 @@ A doorway to the north leads to a hallway."
  :names '("lever" "levers")
  :adjectives  '("green" "polished" "shiny")
  :details "The green lever has been recently polished."
+ :context '((immobile . t))
  :actions (lambda (pattern)
             (pcase pattern
               ((or "pull" "use")
