@@ -38,7 +38,7 @@
  :description "A nice enough guy"
  :details "Greg looks terrified and overconfident at the same time. It's sickening."
  :actions (lambda (pattern)
-            (pcase pattern (`("look" "in" "it") "Greg looks in it."))))
+            (pcase pattern ("take" "Greg shudders at the thought."))))
 
 (defun greg--dinner-scene-1 ()
   "Dinner Scene 1."
