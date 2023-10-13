@@ -1,7 +1,7 @@
 ;;; items.el --- item data  -*- lexical-binding: t -*-
 
 ;;; Commentary:
-;; 
+;;
 
 (require 'spiel)
 
