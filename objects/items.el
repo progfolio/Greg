@@ -18,7 +18,6 @@
 (spiel-create-entity
  'item
  :capacity 0 :description "An unused candle"
- :context '((object . t))
  :names '("candle")
  :location '(in . small-box))
 
