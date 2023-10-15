@@ -89,6 +89,7 @@
           (spiel-display))
       (greg--init))))
 
+;;;###autoload
 (defun greg-load (dir)
   "Reinitialize game with objects in DIR."
   (interactive (list (let ((default-directory greg--test-directory))
