@@ -43,8 +43,8 @@
 (defun greg--dinner-scene-1 ()
   "Dinner Scene 1."
   (setq spiel-pending-question nil)
-  (spiel-object-give 'study 'dad)
-  (spiel-object-give 'kitchen 'mom 'girlfriend)
+  (spiel-object-put 'in 'study 'dad)
+  (spiel-object-put 'in 'kitchen 'mom 'girlfriend)
   (spiel-say 'dad "\"Sure")
   (let ((spiel-type-delay 0.2))
     (dotimes (_ 3) (spiel-print "."))

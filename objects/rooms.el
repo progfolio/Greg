@@ -72,7 +72,7 @@ A doorway to the north leads to a hallway."
                    "Along the back wall there is a green lever.")
              (setf (spiel-object<-details (spiel-ensure-entity 'red-lever))
                    "A broken, rusty lever. Seems dangerous.")
-             (spiel-object-give 'greg 'red-lever)
+             (spiel-object-put 'in 'greg 'red-lever)
              "The red lever breaks off in Greg's hand.")
             (t "The red lever grinds downward."))))))
 
