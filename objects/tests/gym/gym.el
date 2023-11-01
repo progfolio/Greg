@@ -8,9 +8,25 @@
 
 (spiel-create-entity
  'item
+ :id 'coin
+ :names '("coin")
+ :description "A coin is showing \
+%(or (spiel-context-get it 'side)
+     (setf (spiel-context-get it 'side) (if (eq (random 2) 1) 'heads 'tails)))."
+ :location '(in . gym)
+ :actions (lambda (pattern)
+            (pcase pattern
+              ("take" (when (eq (spiel-context-get spiel-self 'side) 'heads)
+                        (spiel-print "\nYou feel luckier."))
+               (setf (spiel-object<-description spiel-self) "A coin.")
+               nil))))
+
+(spiel-create-entity
+ 'item
+ :id 'desk
  :names '("desk")
  :description "An oak desk is in the middle of the room."
- :details "The desk looks ancient."
+ :details "The %(spiel-entity-name it) looks %(if (eq (random 2) 1) \"cool\" \"uncool\")."
  :adjectives '("oak")
  :actions
  nil
@@ -40,7 +56,9 @@
 (spiel-create-entity
  'item
  :names '("drawer")
- :description "An unlocked drawer."
+ :description (lambda () (if (spiel-flagged-p spiel-self 'closed)
+                             "A closed drawer."
+                           "An open drawer."))
  :adjectives '("oak")
  :context '((immobile . t)
             (closed . t))
@@ -51,8 +69,8 @@
  'item
  :names '("key")
  :description "A key."
- :adjectives '("copper")
- :description "A small copper key is here."
+ :adjectives '("gold")
+ :description "A small gold key is here."
  :details
  "The head of the key is shaped like a skull.
 Its blade and ridges make for a rusty spine."
@@ -61,12 +79,15 @@ Its blade and ridges make for a rusty spine."
 (spiel-create-entity
  'actor
  :names '("Greg")
- :description "A test guy."
+ :description "%(spiel-entity-name it) is a test guy."
  :capacity '((in . 10) (on . 5))
  :location '(in . gym))
 
 (defun greg-load-test--intro ()
   "Test loading."
+  (spiel-print "Welcome to the gym.\n")
+  (spiel-print (propertize "press any key to begin...\n\n" 'face 'spiel-command-context))
+  (spiel-wait-for-key)
   (spiel-print (spiel-room-description) "\n")
   (spiel-insert-prompt spiel-pending-question))
 
