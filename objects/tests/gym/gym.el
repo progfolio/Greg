@@ -87,8 +87,11 @@ Its blade and ridges make for a rusty spine."
   "Test loading."
   (spiel-print "Welcome to the gym.\n")
   (spiel-print (propertize "press any key to begin...\n\n" 'face 'spiel-command-context))
-  (spiel-wait-for-key)
-  (spiel-print (spiel-room-description) "\n")
-  (spiel-insert-prompt spiel-pending-question))
+  (spiel-wait-for-key
+   (spiel-print (spiel-room-description) "\n")
+   (spiel-print "hold on...\n")
+   (spiel-wait-for-key
+    (spiel-print "This is a nested wait.\n")
+    (spiel-insert-prompt spiel-pending-question))))
 
 (setq-local greg--post-init-hook (list #'greg-load-test--intro))
