@@ -1,6 +1,6 @@
 ;;; greg.el --- A Text Adventure                     -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2022-2023  Nicholas Vollmer
+;; Copyright (C) 2022-2024  Nicholas Vollmer
 
 ;; Author: Nicholas Vollmer, Daniel Tims
 ;; URL: https://github.com/progfolio/greg
