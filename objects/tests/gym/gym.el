@@ -91,6 +91,7 @@ Its blade and ridges make for a rusty spine."
    (spiel-print (spiel-room-description) "\n")
    (spiel-print "hold on...\n")
    (spiel-wait-for-key
+    (spiel-print (format "You pressed %S" last-input-event))
     (spiel-print "This is a nested wait.\n")
     (spiel-insert-prompt spiel-pending-question))))
 
